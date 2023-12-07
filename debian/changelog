@@ -1,5 +1,179 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-blackfriday (1.6.0-1) unstable; urgency=low
 
-  * Initial release
+  * Team upload.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit.
+
+  [ Aloïs Micard ]
+  * New upstream version.
+  * Mark russross-blackfriday-dev Multi-Arch: foreign. (Closes: #960545)
+  * Bump Standards-Version.
+  * Bump debhelper-compat.
+
+ -- Aloïs Micard <alois@micard.lu>  Sun, 07 Feb 2021 10:47:23 +0100
+
+golang-blackfriday (1.5.2+git20200218.41c5fcc-1) unstable; urgency=medium
+
+  * New upstream version 1.5.2+git20200218.41c5fcc
+  * Set debian/watch to track git HEAD
+  * Remove dependency on golang-github-shurcool-sanitized-anchor-name-dev.
+    Upstream now includes a copy of SanitizedAnchorName inside blackfriday,
+    see https://github.com/russross/blackfriday/pull/352
+  * debian/gbp.conf: Set debian-branch to debian/sid for DEP-14 conformance
+  * Bump Standards-Version to 4.5.0 (no change)
+  * Add "Rules-Requires-Root: no" to debian/control
+  * Update copyright information
+
+ -- Anthony Fok <foka@debian.org>  Thu, 12 Mar 2020 08:51:46 -0600
+
+golang-blackfriday (1.5.2+git20190616.a925a15-1) unstable; urgency=medium
+
+  * New upstream version 1.5.2+git20190616.a925a15
+  * Apply "cme fix dpkg" fixes:
+    - Update debhelper dependency to "Build-Depends: debhelper-compat (= 12)"
+    - Bump Standards-Version to 4.4.0 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Sun, 28 Jul 2019 04:20:22 -0600
+
+golang-blackfriday (1.5.2-1) unstable; urgency=medium
+
+  * New upstream version 1.5.2
+  * Update Maintainer address in debian/control
+  * Bump Standards-Version to 4.2.1 (no change)
+  * Install go.mod
+
+ -- Anthony Fok <foka@debian.org>  Thu, 20 Dec 2018 10:08:24 -0700
+
+golang-blackfriday (1.5.1+git20180428.11635eb-1) unstable; urgency=medium
+
+  [ Alexandre Viau ]
+  * Point Vcs-* urls to salsa.debian.org.
+
+  [ Anthony Fok ]
+  * New upstream snapshot 1.5.1+git20180428.11635eb
+  * Bump Standards-Version to 4.1.4 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Tue, 12 Jun 2018 07:18:51 -0600
+
+golang-blackfriday (1.5.1-1) unstable; urgency=medium
+
+  * New upstream version 1.5.1
+  * Bump Standards-Version to 4.1.3 (no change)
+  * Use debhelper (>= 11)
+  * Update debian/watch file to watch for v1 (master) releases
+    (instead of v2) for the time being.
+
+ -- Anthony Fok <foka@debian.org>  Wed, 28 Feb 2018 14:12:22 -0700
+
+golang-blackfriday (1.5-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump Standards-Version to 4.1.1: Change priority to optional
+  * Reformat debian/control with "cme fix dpkg"
+
+ -- Anthony Fok <foka@debian.org>  Thu, 26 Oct 2017 06:44:00 -0600
+
+golang-blackfriday (1.4+git20170728.51.4048872-1) unstable; urgency=medium
+
+  * New upstream version:
+    - Add Smartypants support for French Guillemets
+      (blackfriday.HTML_SMARTYPANTS_QUOTES_NBSP)
+  * Add "Testsuite: autopkgtest-pkg-go" to debian/control
+
+ -- Anthony Fok <foka@debian.org>  Tue, 08 Aug 2017 04:37:27 -0600
+
+golang-blackfriday (1.4+git20170610.49.067529f-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Bump Standards-Version to 4.0.0:
+    Use https form of the copyright-format URL in debian/copyright.
+
+ -- Anthony Fok <foka@debian.org>  Fri, 30 Jun 2017 23:03:43 -0600
+
+golang-blackfriday (1.4+git20161003.40.5f33e7b-1) unstable; urgency=medium
+
+  [ Dr. Tobias Quathamer ]
+  * Team upload.
+  * Imported Upstream version 1.4+git20161003.40.5f33e7b
+  * Include test fixtures with DH_GOLANG
+  * Remove obsolete DH_GOPKG
+  * Use debhelper v10
+
+  [ Tim Potter ]
+  * Add me as uploader
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Mon, 19 Dec 2016 23:23:11 +0100
+
+golang-blackfriday (1.4+git20160531.33.1d6b8e9-1) unstable; urgency=medium
+
+  * New upstream version, corresponding to Hugo v0.16 release
+  * Use "golang-any" to replace architecture-specific Build-Depends
+    on golang-go and gccgo.
+  * Update debian/control:
+     - Bump Standards-Version to 3.9.8 (no change)
+     - use secure URIs for Vcs-* fields
+     - Add XS-Go-Import-Path field
+
+ -- Anthony Fok <foka@debian.org>  Thu, 09 Jun 2016 05:06:51 -0600
+
+golang-blackfriday (1.4-2) unstable; urgency=medium
+
+  * Build-Depends on gccgo where golang-go is not available
+
+ -- Anthony Fok <foka@debian.org>  Wed, 13 Jan 2016 11:39:43 -0700
+
+golang-blackfriday (1.4-1) unstable; urgency=medium
+
+  * Update to 1.4 upstream release
+  * Extend the "go test" timeout from a default of 10m to 30m to prevent
+    premature timeout and panic a slow build system.  See
+    https://reproducible.debian.net/logs/unstable/armhf/golang-blackfriday_1.3-1.build2.log.gz
+    for the previously failed reproducible build.
+
+ -- Anthony Fok <foka@debian.org>  Sat, 21 Nov 2015 02:04:24 -0700
+
+golang-blackfriday (1.3-1) unstable; urgency=medium
+
+  * Update to 1.3 upstream release
+
+ -- Tianon Gravi <tianon@debian.org>  Wed, 04 Nov 2015 00:58:12 -0800
+
+golang-blackfriday (1.2+git20150720.80.8cec3a8-1) unstable; urgency=medium
+
+  * New upstream snapshot
+  * Refresh debian/gbp.conf
+  * Blackfriday's HTML sanitization code that used "code.google.com/p/go.net"
+    or "golang.org/x/net" have been removed
+     - Remove golang-go.net-dev from Build-Depends and Depends
+     - Remove debian/patches/golang.org-x-net.patch
+  * Add golang-github-shurcool-sanitized-anchor-name-dev to {Build-,}Depends
+  * Rename upskirtref/ to testdata/ in debian/rules as per upstream changes
+  * Remove Built-Using, which is unneeded for library, from debian/control
+  * Rename library package to golang-github-russross-blackfriday-dev;
+    Conflicts/Provides/Replaces the old golang-blackfriday-dev package
+  * Add myself as an uploader in debian/control  :-)
+
+ -- Anthony Fok <foka@debian.org>  Wed, 23 Sep 2015 20:01:24 -0600
+
+golang-blackfriday (1.2-2) unstable; urgency=medium
+
+  [ Tianon Gravi ]
+  * Replace "code.google.com/p/go.net" with the canonical "golang.org/x/net"
+    (Closes: #789944).
+
+  [ Martina Ferrari ]
+  * debian/control: Set pkg-go as maintainer, add package name to
+    description.
+  * debian/control, debian/copyright: Bumped Standards-Version with no changes
+    needed; added myself as uploader.
+  * debian/rules: Don't install superfluous files (solves a lintian error).
+  * debian/gbp.conf: Enable pristine-tar usage.
+
+ -- Martina Ferrari <tincho@debian.org>  Wed, 08 Jul 2015 14:51:10 +0000
+
+golang-blackfriday (1.2-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Sat, 23 Aug 2014 22:40:58 -0400

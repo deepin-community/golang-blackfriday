@@ -1,4 +1,17 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# Include test fixtures
+export DH_GOLANG_INSTALL_EXTRA := go.mod testdata
 
 %:
-	dh $@
+	dh $@ --buildsystem=golang --with=golang
+
+BUILDDIR := $(shell perl -w -MDebian::Debhelper::Buildsystem::golang -e \
+        'print Debian::Debhelper::Buildsystem::golang->new()->get_builddir()')
+
+override_dh_auto_test:
+	dh_auto_test -O--buildsystem=golang -- -timeout 30m
